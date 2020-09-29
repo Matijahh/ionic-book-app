@@ -1,0 +1,25 @@
+ion-card{
+    height: 60vh;
+    margin: 20vh 0;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.logo{
+    font-size: 4em;
+}
+
+ion-card-title{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+ion-card-title span{
+    font-size: 4em;
+    display: block;
+}
+
+ion-card-subtitle{
+    font-size: 1.2em;
+    font-weight: 100;
+}

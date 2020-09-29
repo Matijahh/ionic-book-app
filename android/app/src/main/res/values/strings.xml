@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">bookcorner</string>
+    <string name="title_activity_main">bookcorner</string>
+    <string name="package_name">com.mmklab.bookcorner</string>
+    <string name="custom_url_scheme">com.mmklab.bookcorner</string>
+</resources>

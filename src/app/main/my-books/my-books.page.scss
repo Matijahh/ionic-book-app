@@ -1,0 +1,66 @@
+ion-title, ion-list-header{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+ion-item-divider{
+   padding-left: 0;
+}
+
+.shelves{
+    margin-left: 16px;
+}
+
+ion-list{
+    width: 100%;
+}
+
+ion-text{
+    opacity: .6; 
+}
+
+ion-list-header{
+    font-size: 1.4em;
+}
+
+.want-to-read, .read{
+    color: var(--ion-color-tertiary)
+}
+
+.want-to-read-list{
+    margin-top: 2em;
+}
+
+.want-to-read{
+    font-size: 1.2em;
+}
+
+.first-thumbnail{
+    width: 80px;
+    height: 100px;
+    box-shadow: -2px 1px 5px #000;
+}
+
+.second-thumbnail{
+    width: 70px;
+    height: 90px;
+    margin-left: -3em !important;
+    box-shadow: -2px 1px 5px #000;
+}
+
+.third-thumbnail{
+    width: 60px;
+    height: 80px;
+    margin-left: -3em !important;
+    box-shadow: -2px 1px 5px #000;
+}
+
+ion-button{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+}

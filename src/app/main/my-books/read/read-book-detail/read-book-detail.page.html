@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/main/tabs/my-books/read" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark" *ngIf="isLoaded">{{loadedBook.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-item-divider class="ion-text-center ion-padding">
+          <ion-title class="book-detail" color="tertiary">Book Detail</ion-title>
+        </ion-item-divider>
+      </ion-col>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center" *ngIf="isLoaded">
+        <ion-card class="ion-padding">
+          <ion-card-header>
+            <ion-card-title color="tertiary">
+              {{loadedBook.title}}
+            </ion-card-title>
+            <ion-card-subtitle color="tertiary">
+              {{loadedBook.author}}
+            </ion-card-subtitle>
+            <ion-card-subtitle color="tertiary">
+              {{loadedBook.year}}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-img [src]="loadedBook.imgUrl"></ion-img>
+          <ion-card-content>
+            <p class="ion-padding-vertical">{{loadedBook.resime}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-item-divider class="ion-text-center ion-padding">
+          <ion-title class="book-detail" color="tertiary">Your Review</ion-title>
+        </ion-item-divider>
+      </ion-col>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center" *ngIf="isLoaded && !doesReviewExists">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title color="tertiary">Add your review</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form class="ion-padding" #f="ngForm" (ngSubmit)="onSubmit(f)">
+              <ion-item>
+                <ion-label position="floating">Your review of this book</ion-label>
+                <ion-textarea
+                ngModel 
+                name="review"
+                required
+                #reviewCtrl="ngModel"></ion-textarea>
+              </ion-item>
+              <ion-item *ngIf="!reviewCtrl.valid && reviewCtrl.touched" 
+                lines="none"
+                class="error"
+              >
+                <p>Enter some review</p>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Your rating of this book (1-5)</ion-label>
+                <ion-input 
+                  type="number" 
+                  fill="clear"
+                  ngModel
+                  name="rating"
+                  required
+                  min="1"
+                  max="5"
+                  #ratingCtrl="ngModel"
+                  ></ion-input>
+              </ion-item>
+              <ion-item *ngIf="!ratingCtrl.valid && ratingCtrl.touched" 
+                lines="none"
+                class="error"
+              >
+                <p>Rating must be in range 1-5</p>
+              </ion-item>
+              <ion-button 
+                color="tertiary" 
+                type="submit" 
+                expand="block"
+                class="ion-padding-vertical"
+                [disabled]="!f.valid"
+              >Submit your review</ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center" *ngIf="isLoaded && doesReviewExists">
+        <ion-card class="ion-padding">
+          <ion-card-header>
+            <ion-card-title color="tertiary">Your rating : <span>{{loadedBook.rating}}</span>/5</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="ion-padding-vertical">"{{loadedBook.review}}"</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-item-divider class="ion-text-center ion-padding">
+          <ion-title class="book-detail" color="tertiary">Community Reviews</ion-title>
+        </ion-item-divider>
+      </ion-col>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center" *ngIf="isLoaded">
+        <ion-card class="ion-padding" *ngFor="let rev of loadedReviews">
+          <ion-card-header>
+            <ion-card-title color="tertiary">Rating : <span>{{rev.rating}}</span>/5</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="ion-padding-vertical">"{{rev.review}}"</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

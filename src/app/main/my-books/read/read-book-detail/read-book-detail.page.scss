@@ -1,0 +1,36 @@
+ion-title{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+ion-card-title, ion-label h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+ion-card-title span{
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.error{
+    color: #eb445a;
+    font-size: .7em;
+}
+
+ion-card-subtitle, ion-label p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+ion-card-content p{
+    font-family: 'Poppins', sans-serif;
+}
+
+ion-img{
+    max-width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}

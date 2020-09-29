@@ -1,0 +1,35 @@
+<ion-app>
+  <ion-menu side="start">
+    <ion-header>
+      <ion-toolbar color='primary'>
+        <ion-icon name="book-outline" color='tertiary' class="ion-padding-start logo" slot="start"></ion-icon>
+        <ion-title color='dark'>
+          bookcorner.
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list color='primary'>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/main/tabs/explore">
+            <ion-icon name="search" slot="start" color="primary"></ion-icon>
+            <ion-label>Explore Books</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/main/tabs/my-books">
+            <ion-icon name="book" slot="start" color="primary"></ion-icon>
+            <ion-label>My Books</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" (click)="onLogout()" button>
+            <ion-icon name="exit" slot="start" color="primary"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>

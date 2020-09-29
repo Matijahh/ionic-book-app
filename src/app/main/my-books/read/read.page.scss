@@ -1,0 +1,30 @@
+ion-title, ion-list-header{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+ion-item-divider{
+   padding-left: 0;
+}
+
+.read-books{
+    margin-left: 16px;
+}
+
+ion-list{
+    width: 100%;
+}
+
+ion-list-header{
+    font-size: 1.4em;
+}
+
+ion-button{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+}

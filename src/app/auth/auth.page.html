@@ -1,0 +1,79 @@
+<ion-content class="ion-padding">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-icon name="book-outline" color='tertiary' class="logo"></ion-icon>
+          <ion-title color='tertiary' class="ion-margin-bottom ion-text-center">
+            book<span>corner</span>.
+          </ion-title>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input 
+                type="email" 
+                fill="clear" 
+                ngModel 
+                name="email" 
+                required 
+                email
+                #emailCtrl="ngModel"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" 
+              lines="none"
+              class="error"
+              ><p>Invalid email address.</p></ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-icon 
+                name="eye-outline" 
+                slot="end" 
+                class="toggle-eye" 
+                color="tertiary"
+                (click)="onToggleEye($event)"
+                *ngIf="eyeToggled"></ion-icon>
+              <ion-icon 
+                name="eye-off-outline" 
+                slot="end" 
+                class="toggle-eye" 
+                color="tertiary"
+                (click)="onToggleEye($event)"
+                *ngIf="!eyeToggled"></ion-icon>  
+              <ion-input 
+                [type]="eyeToggled ? 'text' : 'password'" 
+                ngModel 
+                name="password" 
+                required 
+                minlength="6"
+                #passwordCtrl="ngModel"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched"
+             lines="none"
+             class="error"
+             ><p>Password must be at least 6 characters long.</p></ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button 
+            color="tertiary" 
+            type="button" 
+            fill="clear" 
+            expand="block"
+            (click)="onSwitchAuthMode()"
+            class="ion-margin-bottom"
+            >Switch to {{isLogin ? 'Sign Up' : 'Login'}}</ion-button>
+          <ion-button 
+            color="primary" 
+            type="submit" 
+            expand="block"
+            [disabled]="!f.valid"
+            >{{isLogin ? 'Login' : 'Sign Up'}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

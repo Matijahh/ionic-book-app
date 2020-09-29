@@ -1,0 +1,13 @@
+{
+  "appId": "com.mmklab.bookcorner",
+  "appName": "bookcorner",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

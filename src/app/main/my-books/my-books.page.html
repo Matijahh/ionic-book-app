@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="dark">My books</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row size="12" size-sm="8" offset-sm="2" class="ion-text-center ion-padding">
+      <ion-item-divider class="ion-padding"><ion-title class="shelves" color="tertiary">Shelves</ion-title></ion-item-divider>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center ion-padding">
+        <ion-item-divider>
+          <ion-list class="ion-padding" *ngIf="isLoaded">
+            <ion-list-header class="read">Read</ion-list-header>
+            <ion-item lines="none" *ngIf="loadedReadBooks.length > 0">
+              <ion-thumbnail slot="start" class="first-thumbnail" *ngIf="loadedReadBooks[0] !== undefined">
+                <img src="{{loadedReadBooks[0]?.imgUrl}}">
+              </ion-thumbnail>
+              <ion-thumbnail slot="start" class="second-thumbnail" *ngIf="loadedReadBooks[1] !== undefined">
+                <img src="{{loadedReadBooks[1]?.imgUrl}}">
+              </ion-thumbnail>
+              <ion-thumbnail slot="start" class="third-thumbnail" *ngIf="loadedReadBooks[2] !== undefined">
+                <img src="{{loadedReadBooks[2]?.imgUrl}}">
+              </ion-thumbnail>
+              <ion-button fill="none" color="primary" (click)="onGoRead()">[{{loadedReadBooks.length}} books]<ion-icon name="chevron-forward-outline" slot="end"></ion-icon></ion-button>
+            </ion-item>
+            <ion-item lines="none" *ngIf="loadedReadBooks.length === 0">
+              <ion-text class="ion-padding-vertical">You don't have any read books. Go to explore page to find out your new favourite book.</ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-item-divider>
+        <ion-list class="want-to-read-list ion-padding" *ngIf="isLoaded">
+          <ion-list-header class="want-to-read">Want to read</ion-list-header>
+          <ion-item lines="none" *ngIf="loadedWantToReadBooks.length > 0">
+            <ion-thumbnail slot="start" class="first-thumbnail" *ngIf="loadedWantToReadBooks[0] !== undefined">
+              <img src="{{loadedWantToReadBooks[0]?.imgUrl}}">
+            </ion-thumbnail>
+            <ion-thumbnail slot="start" class="second-thumbnail" *ngIf="loadedWantToReadBooks[1] !== undefined">
+              <img src="{{loadedWantToReadBooks[1]?.imgUrl}}">
+            </ion-thumbnail>
+            <ion-thumbnail slot="start" class="third-thumbnail" *ngIf="loadedWantToReadBooks[2] !== undefined">
+              <img src="{{loadedWantToReadBooks[2]?.imgUrl}}">
+            </ion-thumbnail>
+            <ion-button fill="none" color="primary" (click)="onGoWantToRead()">[{{loadedWantToReadBooks.length}} books]<ion-icon name="chevron-forward-outline" slot="end"></ion-icon></ion-button>
+          </ion-item>
+          <ion-item lines="none" *ngIf="loadedWantToReadBooks.length === 0">
+            <ion-text class="ion-padding-vertical">You don't have any book you want to read. Go to explore page to find out your new favourite book.</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,1 +1,0 @@
-# ionic-book-app
